@@ -11,13 +11,13 @@
     <ul>
     <% @venues.each do |venue| %>
       <li>
-        <%= venue["name"] %><br>
-        <%= venue["location"]["address"] %><br>
-        Checkins: <%= venue["stats"]["checkinsCount"] %><br>
-        <%= form_tag '/tips' do %>
+        <h2><%= venue["name"] %></h2>
+        <p><%= venue["location"]["address"] %></p>
+        <p>Checkins: <%= venue["stats"]["checkinsCount"] %></p>
+        <div><%= form_tag '/tips' do %>
           <%= hidden_field_tag :venue_id, venue["id"] %>
           Add tip: <%= text_field_tag :tip %><%= submit_tag "Add Tip" %>
-        <% end %>
+        <% end %></div>
       </li>
     <% end %>
     </ul>
